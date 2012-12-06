@@ -1,0 +1,5 @@
+Examples of building the Verilog version:
+
+hdlmake.py -t ../../templates/fx2min/verilog -p lx9
+hdlmake.py -t ../../templates/fx2all/verilog -p nexys2-1200
+hdlmake.py -t ../../templates/epp/verilog -p ep2c5

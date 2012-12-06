@@ -1,0 +1,37 @@
+This example demonstrates how to use a vendor IP block, in this case a FIFO. It
+may be built with a command similar to one of these:
+
+    hdlmake.py -t ../../templates/fx2min/verilog -p lx9
+    hdlmake.py -t ../../templates/fx2all/verilog -p nexys2-1200
+    hdlmake.py -t ../../templates/epp/verilog -p ep2c5
+
+Unfortunately, the Xilinx tools are rather bad at maintaining compatibility for
+scripted generation of such IP cores across tool versions. If the FIFO
+generation fails for you, you may need to re-specify it manually. For example,
+if you have a nexys2-1200:
+
+    cd fifo_gen/
+    rm -rf nexys2-1200
+    hdlmake.py -x nexys2-1200
+
+When coregen starts, follow these steps:
+    * Select "File -> New Project".
+    * Save "coregen.cgp".
+    * In "Project Options":
+      * In "Part": Choose the right FPGA family, product, package etc.
+      * In "Generation": Choose "Design Entry=Verilog".
+      * Click "OK".
+    * Double-click "Memories & Storage Elements -> FIFOs -> Fifo Generator".
+    * In "Fifo Generator":
+      * Choose "fifo" for "Component Name" & click "Next" twice.
+      * Choose "First-Word Fall-Through", "Width=8", "Depth=128" & "Next" twice.
+      * Uncheck "Reset Pin" & click "Next".
+      * Check "Data Count" (width should already be 8) & click "Next".
+      * Click "Generate".
+    * When generation is complete, close coregen.
+
+This will create a nexys2-1200 directory containing a fifo.batch file and an
+hdlmake.cfg file to get you started. It remains necessary to add
+"../fifo_wrapper_xilinx.v" to the list of HDLs in hdlmake.cfg. This merely
+abstracts the interface so that the same entity can be used at the application
+level irrespective of whether the underlying core is from Altera or Xilinx.
