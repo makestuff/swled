@@ -1,9 +1,9 @@
 This example demonstrates how to use a vendor IP block, in this case a FIFO. It
 may be built with a command similar to one of these:
 
-    hdlmake.py -t ../../templates/fx2min/verilog -p lx9
-    hdlmake.py -t ../../templates/fx2all/verilog -p nexys2-1200
-    hdlmake.py -t ../../templates/epp/verilog -p ep2c5
+    hdlmake.py -t ../../templates/fx2min/verilog -b lx9
+    hdlmake.py -t ../../templates/fx2all/verilog -b nexys2-1200
+    hdlmake.py -t ../../templates/epp/verilog -b ep2c5
 
 Unfortunately, the Xilinx tools are rather bad at maintaining compatibility for
 scripted generation of such IP cores across tool versions. If the FIFO
