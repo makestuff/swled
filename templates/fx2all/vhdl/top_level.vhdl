@@ -61,15 +61,21 @@ architecture structural of top_level is
 
 	-- Needed so that the comm_fpga_fx2 module can drive both fx2Read_out and fx2OE_out
 	signal fx2Read   : std_logic;
+
+	-- Reset signal so host can delay startup
+	signal fx2Reset  : std_logic;
 begin
 	-- CommFPGA module
 	fx2Read_out <= fx2Read;
 	fx2OE_out <= fx2Read;
-	fx2Addr_out(0) <= '0';  -- So fx2Addr_out(1)='0' selects EP2OUT, fx2Addr_out(1)='1' selects EP6IN
+	fx2Addr_out(0) <=  -- So fx2Addr_out(1)='0' selects EP2OUT, fx2Addr_out(1)='1' selects EP6IN
+		'0' when fx2Reset = '0'
+		else 'Z';
 	comm_fpga_fx2 : entity work.comm_fpga_fx2
 		port map(
 			clk_in         => fx2Clk_in,
 			reset_in       => '0',
+			reset_out      => fx2Reset,
 			
 			-- FX2LP interface
 			fx2FifoSel_out => fx2Addr_out(1),
