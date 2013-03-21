@@ -54,14 +54,19 @@ module
 
 	// Needed so that the comm_fpga_fx2 module can drive both fx2Read_out and fx2OE_out
 	wire      fx2Read;
+
+	// Reset signal so host can delay startup
+	wire      fx2Reset;
 	
 	// CommFPGA module
 	assign fx2Read_out = fx2Read;
 	assign fx2OE_out = fx2Read;
-	assign fx2Addr_out[0] = 1'b0;  // So fx2Addr_out[1]='0' selects EP2OUT, fx2Addr_out[1]='1' selects EP6IN
+	assign fx2Addr_out[0] =  // So fx2Addr_out[1]='0' selects EP2OUT, fx2Addr_out[1]='1' selects EP6IN
+		 (fx2Reset == 1'b0) ? 1'b0 : 1'bZ;
 	comm_fpga_fx2 comm_fpga_fx2(
 		.clk_in(fx2Clk_in),
 		.reset_in(1'b0),
+		.reset_out(fx2Reset),
 			
 		// FX2LP interface
 		.fx2FifoSel_out(fx2Addr_out[1]),

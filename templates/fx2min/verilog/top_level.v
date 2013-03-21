@@ -55,6 +55,7 @@ module
 	comm_fpga_fx2 comm_fpga_fx2(
 		.clk_in(fx2Clk_in),
 		.reset_in(1'b0),
+		.reset_out(),
 			
 		// FX2LP interface
 		.fx2FifoSel_out(fx2FifoSel_out),
