@@ -43,4 +43,4 @@ entity swled is
 		led_out        : out   std_logic_vector(7 downto 0); -- eight LEDs
 		sw_in          : in    std_logic_vector(7 downto 0)  -- eight switches
 	);
-end swled;
+end entity;

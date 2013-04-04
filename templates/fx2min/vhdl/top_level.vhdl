@@ -41,7 +41,7 @@ entity top_level is
 		led_out        : out   std_logic_vector(7 downto 0); -- eight LEDs
 		sw_in          : in    std_logic_vector(7 downto 0)  -- eight switches
 	);
-end top_level;
+end entity;
 
 architecture structural of top_level is
 	-- Channel read/write interface -----------------------------------------------------------------
@@ -105,4 +105,4 @@ begin
 			led_out      => led_out,
 			sw_in        => sw_in
 		);
-end structural;
+end architecture;

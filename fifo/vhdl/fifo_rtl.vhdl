@@ -19,7 +19,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-architecture fifo_rtl of swled is
+architecture rtl of swled is
 	-- Flags for display on the 7-seg decimal points
 	signal flags                   : std_logic_vector(3 downto 0);
 
@@ -159,4 +159,4 @@ begin                                                                     --BEGI
 			segs_out   => sseg_out,
 			anodes_out => anode_out
 		);
-end fifo_rtl;
+end architecture;

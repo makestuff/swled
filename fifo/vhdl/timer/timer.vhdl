@@ -31,9 +31,9 @@ entity timer is
 		ceiling_in : in  std_logic_vector(CEILING_WIDTH-1 downto 0);
 		tick_out   : out std_logic
 	);
-end timer;
+end entity;
 
-architecture behavioural of timer is
+architecture rtl of timer is
 	constant TOP_BIT : natural := 2**CEILING_WIDTH - 1;
 	function reverse(fwd : in std_logic_vector) return std_logic_vector is
 		variable result : std_logic_vector(TOP_BIT downto 0);
@@ -66,4 +66,4 @@ begin
 			tick_out <= '1';
 		end if;
 	end process;
-end behavioural;
+end architecture;

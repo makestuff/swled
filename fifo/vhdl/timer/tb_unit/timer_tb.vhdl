@@ -22,7 +22,7 @@ use ieee.std_logic_textio.all;
 use std.textio.all;
 
 entity timer_tb is
-end timer_tb;
+end entity;
 
 architecture behavioural of timer_tb is
 	constant COUNTER_WIDTH : integer := 4;

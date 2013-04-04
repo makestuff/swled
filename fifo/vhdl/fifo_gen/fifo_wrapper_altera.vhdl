@@ -35,9 +35,9 @@ entity fifo_wrapper is
 		outputValid_out : out std_logic;
 		outputReady_in  : in  std_logic
 	);
-end fifo_wrapper;
+end entity;
 
-architecture behavioural of fifo_wrapper is
+architecture structural of fifo_wrapper is
 	signal inputFull   : std_logic;
 	signal outputEmpty : std_logic;
 begin
@@ -62,4 +62,4 @@ begin
 			rdreq      => outputReady_in
 		);
 	
-end behavioural;
+end architecture;

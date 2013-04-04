@@ -35,7 +35,7 @@ entity fifo_wrapper is
 		outputValid_out : out std_logic;
 		outputReady_in  : in  std_logic
 	);
-end fifo_wrapper;
+end entity;
 
 architecture structural of fifo_wrapper is
 begin
@@ -61,4 +61,4 @@ begin
 			outputReady_in  => outputReady_in
 		);
 	
-end structural;
+end architecture;
