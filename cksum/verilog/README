@@ -1,5 +1,11 @@
-Examples of building the Verilog version:
-
-hdlmake.py -t ../../templates/fx2min/verilog -b lx9
-hdlmake.py -t ../../templates/fx2all/verilog -b nexys2-1200
-hdlmake.py -t ../../templates/epp/verilog -b ep2c5
+../../../../../bin/hdlmake.py -t ../../templates/epp/verilog -b ep2c5
+../../../../../bin/hdlmake.py -t ../../templates/epp/verilog -b nexys2-1200 -p fpga prom
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/verilog -b aes220
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/verilog -b atlys -p fpga
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/verilog -b nexys2-1200 -p fpga prom
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/verilog -b nexys2-500 -p fpga prom
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/verilog -b nexys3 -p fpga
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/verilog -b s3board -p fpga prom
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/verilog -b xylo-l -p fpga
+../../../../../bin/hdlmake.py -t ../../templates/fx2min/verilog -b ep3c16
+../../../../../bin/hdlmake.py -t ../../templates/fx2min/verilog -b lx9 -p fpga

@@ -1,8 +1,8 @@
 -w
 -g DebugBitstream:No
--g Binary:no
+-g Binary:No
 -g CRC:Enable
--g ConfigRate:1
+-g ConfigRate:12
 -g ProgPin:PullUp
 -g DonePin:PullUp
 -g TckPin:PullUp
