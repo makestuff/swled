@@ -9,4 +9,5 @@
 ../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b s3board -p fpga prom
 ../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b xylo-l -p fpga
 ../../../../../bin/hdlmake.py -t ../../templates/fx2min/vhdl -b ep3c16
-../../../../../bin/hdlmake.py -t ../../templates/fx2min/vhdl -b lx9 -p fpga
+../../../../../bin/hdlmake.py -t ../../templates/fx2min/vhdl -b lx9r1 -p fpga
+../../../../../bin/hdlmake.py -t ../../templates/fx2min/vhdl -b lx9r2 -p fpga
