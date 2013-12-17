@@ -21,8 +21,9 @@ use ieee.numeric_std.all;
 
 entity top_level is
 	port(
+		sysClk_in     : in    std_logic;                     -- clock input (asynchronous with EPP signals)
+		
 		-- EPP interface -----------------------------------------------------------------------------
-		eppClk_in     : in    std_logic;                     -- clock input (asynchronous with EPP signals)
 		eppData_io    : inout std_logic_vector(7 downto 0);  -- bidirectional 8-bit data bus
 		eppAddrStb_in : in    std_logic;                     -- active-low asynchronous address strobe
 		eppDataStb_in : in    std_logic;                     -- active-low asynchronous data strobe
@@ -51,12 +52,15 @@ architecture structural of top_level is
 	signal f2hValid  : std_logic;                     -- channel logic can drive this low to say "I don't have data ready for you"
 	signal f2hReady  : std_logic;                     -- '1' means "on the next clock rising edge, put your next byte of data on f2hData"
 	-- ----------------------------------------------------------------------------------------------
+	
+	signal eppReset  : std_logic;
 begin                                                                     --BEGIN_SNIPPET(registers)
 	-- CommFPGA module
 	comm_fpga_epp : entity work.comm_fpga_epp
 		port map(
-			clk_in       => eppClk_in,
+			clk_in       => sysClk_in,
 			reset_in     => '0',
+			reset_out    => eppReset,
 			
 			-- EPP interface
 			eppData_io     => eppData_io,
@@ -78,8 +82,8 @@ begin                                                                     --BEGI
 	-- Switches & LEDs application
 	swled_app : entity work.swled
 		port map(
-			clk_in       => eppClk_in,
-			reset_in     => '0',
+			clk_in       => sysClk_in,
+			reset_in     => eppReset,
 			
 			-- DVR interface -> Connects to comm_fpga module
 			chanAddr_in  => chanAddr,

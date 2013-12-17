@@ -20,9 +20,9 @@
 #===============================================================================
 NET "sysClk_in"       LOC="B8"   | IOSTANDARD=LVTTL;   # 50MHz
 
-NET "serClk_in"       LOC="G13"  | IOSTANDARD=LVTTL;   # JC3
-NET "serData_in"      LOC="J16"  | IOSTANDARD=LVTTL;   # JC2
-NET "serData_out"     LOC="G15"  | IOSTANDARD=LVTTL;   # JC1
+NET "serClk_in"       LOC="G13"  | IOSTANDARD=LVCMOS33;  # JC3
+NET "serData_in"      LOC="J16"  | IOSTANDARD=LVCMOS33;  # JC2
+NET "serData_out"     LOC="G15"  | IOSTANDARD=LVCMOS33;  # JC1
 
 #===============================================================================
 # On-board peripheral signals

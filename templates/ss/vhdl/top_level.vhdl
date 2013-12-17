@@ -21,42 +21,44 @@ use ieee.numeric_std.all;
 
 entity top_level is
 	port(
-		-- USB interface -----------------------------------------------------------------------------
-		sysClk_in      : in    std_logic;  -- 50MHz system clock
+		sysClk_in    : in    std_logic;  -- 50MHz system clock
 		
-		serClk_in      : in    std_logic;  -- serial clock (async to sysClk_in)
-		serData_out    : out   std_logic;  -- serial data out
-		serData_in     : in    std_logic;  -- serial data in
-
+		-- USB interface -----------------------------------------------------------------------------
+		serClk_in    : in    std_logic;  -- serial clock (async to sysClk_in)
+		serData_in   : in    std_logic;  -- serial data in
+		serData_out  : out   std_logic;  -- serial data out
+		
 		-- Onboard peripherals -----------------------------------------------------------------------
-		sseg_out       : out   std_logic_vector(7 downto 0); -- seven-segment display cathodes (one for each segment)
-		anode_out      : out   std_logic_vector(3 downto 0); -- seven-segment display anodes (one for each digit)
-		led_out        : out   std_logic_vector(7 downto 0); -- eight LEDs
-		sw_in          : in    std_logic_vector(7 downto 0)  -- eight switches
+		sseg_out     : out   std_logic_vector(7 downto 0);  -- seven-segment display cathodes (one for each segment)
+		anode_out    : out   std_logic_vector(3 downto 0);  -- seven-segment display anodes (one for each digit)
+		led_out      : out   std_logic_vector(7 downto 0);  -- eight LEDs
+		sw_in        : in    std_logic_vector(7 downto 0)   -- eight switches
 	);
 end entity;
 
 architecture structural of top_level is
 	-- Channel read/write interface -----------------------------------------------------------------
-	signal chanAddr  : std_logic_vector(6 downto 0);  -- the selected channel (0-127)
-
+	signal chanAddr : std_logic_vector(6 downto 0);  -- the selected channel (0-127)
+	
 	-- Host >> FPGA pipe:
-	signal h2fData   : std_logic_vector(7 downto 0);  -- data lines used when the host writes to a channel
-	signal h2fValid  : std_logic;                     -- '1' means "on the next clock rising edge, please accept the data on h2fData"
-	signal h2fReady  : std_logic;                     -- channel logic can drive this low to say "I'm not ready for more data yet"
-
+	signal h2fData  : std_logic_vector(7 downto 0);  -- data lines used when the host writes to a channel
+	signal h2fValid : std_logic;                     -- '1' means "on the next clock rising edge, please accept the data on h2fData"
+	signal h2fReady : std_logic;                     -- channel logic can drive this low to say "I'm not ready for more data yet"
+	
 	-- Host << FPGA pipe:
-	signal f2hData   : std_logic_vector(7 downto 0);  -- data lines used when the host reads from a channel
-	signal f2hValid  : std_logic;                     -- channel logic can drive this low to say "I don't have data ready for you"
-	signal f2hReady  : std_logic;                     -- '1' means "on the next clock rising edge, put your next byte of data on f2hData"
+	signal f2hData  : std_logic_vector(7 downto 0);  -- data lines used when the host reads from a channel
+	signal f2hValid : std_logic;                     -- channel logic can drive this low to say "I don't have data ready for you"
+	signal f2hReady : std_logic;                     -- '1' means "on the next clock rising edge, put your next byte of data on f2hData"
 	-- ----------------------------------------------------------------------------------------------
+	
+	signal ssReset  : std_logic;
 begin
 	-- CommFPGA module
 	comm_fpga_ss : entity work.comm_fpga_ss
 		port map(
 			clk_in       => sysClk_in,
-			--reset_in     => '0',
-			--reset_out    => fx2Reset,
+			reset_in     => '0',
+			reset_out    => ssReset,
 			
 			-- USB interface
 			serClk_in    => serClk_in,
@@ -77,7 +79,7 @@ begin
 	swled_app : entity work.swled
 		port map(
 			clk_in       => sysClk_in,
-			reset_in     => '0',
+			reset_in     => ssReset,
 			
 			-- DVR interface -> Connects to comm_fpga module
 			chanAddr_in  => chanAddr,

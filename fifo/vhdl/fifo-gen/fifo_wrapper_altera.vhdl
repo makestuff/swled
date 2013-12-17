@@ -46,7 +46,7 @@ begin
 	outputValid_out <= not(outputEmpty);
 
 	-- The encapsulated FIFO
-	fifo : entity work.fifo
+	fifo : entity work.altera_fifo
 		port map(
 			clock      => clk_in,
 			usedw      => depth_out,

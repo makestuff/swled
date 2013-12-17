@@ -39,7 +39,7 @@ module
 	assign outputValid_out = !outputEmpty;
 
 	// The encapsulated FIFO
-	fifo fifo(
+	altera_fifo fifo(
 		.clock(clk_in),
 		.usedw(depth_out),
 		
