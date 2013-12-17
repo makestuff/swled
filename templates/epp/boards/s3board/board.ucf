@@ -32,7 +32,7 @@ NET "eppData_io<7>"   LOC="M6"   | IOSTANDARD=LVTTL;   # B19
 NET "eppAddrStb_in"   LOC="E15"  | IOSTANDARD=LVTTL | PULLUP;   # B25 (PD1)
 NET "eppDataStb_in"   LOC="N9"   | IOSTANDARD=LVTTL | PULLUP;   # B38 (PD5 - INIT)
 NET "eppWrite_in"     LOC="C15"  | IOSTANDARD=LVTTL | PULLUP;   # B21 (PD3)
-NET "eppWait_out"     LOC="D15"  | IOSTANDARD=LVTTL | PULLUP;   # B23 (PD2)
+NET "eppWait_out"     LOC="D15"  | IOSTANDARD=LVTTL;            # B23 (PD2)
 
 #===============================================================================
 # On-board peripheral signals
