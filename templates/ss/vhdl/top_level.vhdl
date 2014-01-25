@@ -50,15 +50,12 @@ architecture structural of top_level is
 	signal f2hValid : std_logic;                     -- channel logic can drive this low to say "I don't have data ready for you"
 	signal f2hReady : std_logic;                     -- '1' means "on the next clock rising edge, put your next byte of data on f2hData"
 	-- ----------------------------------------------------------------------------------------------
-	
-	signal ssReset  : std_logic;
 begin
 	-- CommFPGA module
 	comm_fpga_ss : entity work.comm_fpga_ss
 		port map(
 			clk_in       => sysClk_in,
 			reset_in     => '0',
-			reset_out    => ssReset,
 			
 			-- USB interface
 			serClk_in    => serClk_in,
@@ -79,7 +76,7 @@ begin
 	swled_app : entity work.swled
 		port map(
 			clk_in       => sysClk_in,
-			reset_in     => ssReset,
+			reset_in     => '0',
 			
 			-- DVR interface -> Connects to comm_fpga module
 			chanAddr_in  => chanAddr,
