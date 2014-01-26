@@ -24,19 +24,9 @@ set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_
 #===============================================================================
 set_location_assignment PIN_17  -to sysClk_in
 
-set_location_assignment PIN_144 -to eppData_io[0]
-set_location_assignment PIN_142 -to eppData_io[1]
-set_location_assignment PIN_139 -to eppData_io[2]
-set_location_assignment PIN_136 -to eppData_io[3]
-set_location_assignment PIN_134 -to eppData_io[4]
-set_location_assignment PIN_132 -to eppData_io[5]
-set_location_assignment PIN_126 -to eppData_io[6]
-set_location_assignment PIN_122 -to eppData_io[7]
-
-set_location_assignment PIN_143 -to eppAddrStb_in
-set_location_assignment PIN_141 -to eppDataStb_in
-set_location_assignment PIN_137 -to eppWrite_in
-set_location_assignment PIN_135 -to eppWait_out
+set_location_assignment PIN_139 -to serData_out
+set_location_assignment PIN_136 -to serData_in
+set_location_assignment PIN_132 -to serClk_in
 
 #===============================================================================
 # Peripheral signals
