@@ -1,6 +1,6 @@
 ../../../../../bin/hdlmake.py -t ../../templates/epp/verilog -b ep2c5
 ../../../../../bin/hdlmake.py -t ../../templates/epp/verilog -b nexys2-1200 -p fpga prom
-../../../../../bin/hdlmake.py -t ../../templates/epp/vhdl -b s3board
+../../../../../bin/hdlmake.py -t ../../templates/epp/verilog -b s3board
 ../../../../../bin/hdlmake.py -t ../../templates/ss/vhdl -b s3board
 ../../../../../bin/hdlmake.py -t ../../templates/fx2all/verilog -b aes220
 ../../../../../bin/hdlmake.py -t ../../templates/fx2all/verilog -b atlys -p fpga
