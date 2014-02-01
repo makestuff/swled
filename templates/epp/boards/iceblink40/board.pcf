@@ -18,7 +18,7 @@
 #===============================================================================
 # USB interface
 #===============================================================================
-set_io eppClk_in     13  # SYSCLK: 333kHz, 3.33MHz, 33.3MHz etc
+set_io sysClk_in     13  # SYSCLK: 333kHz, 3.33MHz, 33.3MHz etc
 
 set_io eppData_io[0] 42  # AVR PD0
 set_io eppData_io[1] 41  # AVR PD1
