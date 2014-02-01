@@ -16,8 +16,9 @@
 //
 module
 	top_level(
+		input  wire      sysClk_in,      // clock input (asynchronous with EPP signals)
+
 		// EPP interface -----------------------------------------------------------------------------
-		input  wire      eppClk_in,      // clock input (asynchronous with EPP signals)
 		inout  wire[7:0] eppData_io,     // bidirectional 8-bit data bus
 		input  wire      eppAddrStb_in,  // active-low asynchronous address strobe
 		input  wire      eppDataStb_in,  // active-low asynchronous data strobe
@@ -45,11 +46,14 @@ module
 	wire      f2hReady;  // '1' means "on the next clock rising edge, put your next byte of data on f2hData"
 	// ----------------------------------------------------------------------------------------------
 
+	wire      eppReset;
+
 	// CommFPGA module
 	comm_fpga_epp comm_fpga_epp(
-		.clk_in(eppClk_in),
+		.clk_in(sysClk_in),
 		.reset_in(1'b0),
-			
+		.reset_out(eppReset),
+
 		// EPP interface
 		.eppData_io(eppData_io),
 		.eppAddrStb_in(eppAddrStb_in),
@@ -69,8 +73,8 @@ module
 
 	// Switches & LEDs application
 	swled swled_app(
-		.clk_in(eppClk_in),
-		.reset_in(1'b0),
+		.clk_in(sysClk_in),
+		.reset_in(eppReset),
 		
 		// DVR interface -> Connects to comm_fpga module
 		.chanAddr_in(chanAddr),

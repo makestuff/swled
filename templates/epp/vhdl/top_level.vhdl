@@ -54,7 +54,7 @@ architecture structural of top_level is
 	-- ----------------------------------------------------------------------------------------------
 	
 	signal eppReset  : std_logic;
-begin                                                                     --BEGIN_SNIPPET(registers)
+begin
 	-- CommFPGA module
 	comm_fpga_epp : entity work.comm_fpga_epp
 		port map(
