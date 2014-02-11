@@ -4,6 +4,8 @@
 ../../../../../bin/hdlmake.py -t ../../templates/ss/vhdl -b s3board
 ../../../../../bin/hdlmake.py -t ../../templates/ss/vhdl -b ep2c5 -p prom
 ../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b aes220
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b te630-45 -p fpga
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b te630-75 -p fpga
 ../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b atlys -p fpga
 ../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b fmc-s6 -p fpga
 ../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b nexys2-1200 -p fpga prom
