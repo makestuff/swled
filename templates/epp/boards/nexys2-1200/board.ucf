@@ -18,7 +18,7 @@
 #===============================================================================
 # USB interface
 #===============================================================================
-NET "eppClk_in"       LOC="B8"   | IOSTANDARD=LVTTL;   # 50MHz
+NET "sysClk_in"       LOC="B8"   | IOSTANDARD=LVTTL;   # 50MHz
 
 NET "eppData_io<0>"   LOC="H15"  | IOSTANDARD=LVTTL;   # JC7
 NET "eppData_io<1>"   LOC="F14"  | IOSTANDARD=LVTTL;   # JC8
@@ -72,6 +72,6 @@ NET "sw_in<7>"        LOC="R17"  | IOSTANDARD=LVTTL;   # SW7
 #===============================================================================
 # Timing constraint of FX2 48MHz clock "eppClk_in"
 #===============================================================================
-NET "eppClk_in" CLOCK_DEDICATED_ROUTE = FALSE;
-NET "eppClk_in" TNM_NET = "eppClk_in";
+NET "sysClk_in" CLOCK_DEDICATED_ROUTE = FALSE;
+NET "sysClk_in" TNM_NET = "eppClk_in";
 TIMESPEC "TS_clk" = PERIOD "eppClk_in" 20 ns HIGH 50 %;
