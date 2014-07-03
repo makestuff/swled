@@ -1,0 +1,120 @@
+set_global_assignment -name FAMILY CYCLONEV
+set_global_assignment -name DEVICE 5CGTFD9E5F35C7
+set_global_assignment -name TOP_LEVEL_ENTITY top_level
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:48:35  JUNE 30, 2014"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name GENERATE_SVF_FILE ON
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED WITH WEAK PULL-UP"
+set_global_assignment -name SDC_FILE top_level.sdc
+
+#===============================================================================
+# USB interface
+#===============================================================================
+set_location_assignment PIN_G18  -to fx2Clk_in
+set_location_assignment PIN_G14  -to fx2Addr_out[0]
+set_location_assignment PIN_E17  -to fx2Addr_out[1]
+
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2Clk_in
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2Addr_out[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2Addr_out[1]
+
+set_location_assignment PIN_H14 -to fx2Data_io[0]
+set_location_assignment PIN_K14 -to fx2Data_io[1]
+set_location_assignment PIN_J15 -to fx2Data_io[2]
+set_location_assignment PIN_A8  -to fx2Data_io[3]
+set_location_assignment PIN_B8  -to fx2Data_io[4]
+set_location_assignment PIN_L17 -to fx2Data_io[5]
+set_location_assignment PIN_M16 -to fx2Data_io[6]
+set_location_assignment PIN_N12 -to fx2Data_io[7]
+
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2Data_io[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2Data_io[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2Data_io[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2Data_io[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2Data_io[4]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2Data_io[5]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2Data_io[6]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2Data_io[7]
+
+set_location_assignment PIN_N13 -to fx2Read_out
+#set_location_assignment PIN_L13 -to fx2GotData_in  # orig
+set_location_assignment PIN_L15 -to fx2GotData_in  # mod
+
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2Read_out
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2GotData_in
+
+set_location_assignment PIN_M13 -to fx2Write_out
+set_location_assignment PIN_M14 -to fx2GotRoom_in
+set_location_assignment PIN_M15 -to fx2PktEnd_out
+
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2Write_out
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2GotRoom_in
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fx2PktEnd_out
+
+#===============================================================================
+# Peripheral signals
+#===============================================================================
+set_location_assignment PIN_AM23 -to led_out[0]
+set_location_assignment PIN_AE25 -to led_out[1]
+set_location_assignment PIN_AK29 -to led_out[2]
+set_location_assignment PIN_AL31 -to led_out[3]
+set_location_assignment PIN_AF25 -to led_out[4]
+set_location_assignment PIN_AJ27 -to led_out[5]
+set_location_assignment PIN_AC22 -to led_out[6]
+set_location_assignment PIN_AH27 -to led_out[7]
+
+set_instance_assignment -name IO_STANDARD "1.5 V" -to led_out[0]
+set_instance_assignment -name IO_STANDARD "1.5 V" -to led_out[1]
+set_instance_assignment -name IO_STANDARD "1.5 V" -to led_out[2]
+set_instance_assignment -name IO_STANDARD "1.5 V" -to led_out[3]
+set_instance_assignment -name IO_STANDARD "1.5 V" -to led_out[4]
+set_instance_assignment -name IO_STANDARD "1.5 V" -to led_out[5]
+set_instance_assignment -name IO_STANDARD "1.5 V" -to led_out[6]
+set_instance_assignment -name IO_STANDARD "1.5 V" -to led_out[7]
+
+set_location_assignment PIN_F16 -to sseg_out[0]  # segment a
+set_location_assignment PIN_F17 -to sseg_out[1]  # segment b
+set_location_assignment PIN_C17 -to sseg_out[2]  # segment c
+set_location_assignment PIN_C18 -to sseg_out[3]  # segment d
+set_location_assignment PIN_L16 -to sseg_out[4]  # segment e
+set_location_assignment PIN_A15 -to sseg_out[5]  # segment f
+set_location_assignment PIN_B15 -to sseg_out[6]  # segment g
+set_location_assignment PIN_D16 -to sseg_out[7]  # decimal point
+
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sseg_out[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sseg_out[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sseg_out[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sseg_out[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sseg_out[4]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sseg_out[5]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sseg_out[6]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sseg_out[7]
+
+set_location_assignment PIN_D17 -to anode_out[0]
+set_location_assignment PIN_A16 -to anode_out[1]
+set_location_assignment PIN_A17 -to anode_out[2]
+set_location_assignment PIN_B16 -to anode_out[3]
+
+set_instance_assignment -name IO_STANDARD "2.5 V" -to anode_out[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to anode_out[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to anode_out[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to anode_out[3]
+
+set_location_assignment PIN_H12 -to sw_in[0]
+set_location_assignment PIN_A2  -to sw_in[1]
+set_location_assignment PIN_E10 -to sw_in[2]
+set_location_assignment PIN_D9  -to sw_in[3]
+set_location_assignment PIN_E9  -to sw_in[4]
+set_location_assignment PIN_D7  -to sw_in[5]
+set_location_assignment PIN_E8  -to sw_in[6]
+set_location_assignment PIN_E7  -to sw_in[7]
+
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sw_in[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sw_in[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sw_in[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sw_in[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sw_in[4]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sw_in[5]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sw_in[6]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sw_in[7]
