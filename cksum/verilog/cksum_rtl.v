@@ -89,7 +89,7 @@ module
 	
 	// LEDs and 7-seg display
 	assign led_out = reg0;
-	assign flags = {3'b000, f2hReady_in};
+	assign flags = {3'b00, f2hReady_in, reset_in};
 	seven_seg seven_seg(
 		.clk_in(clk_in),
 		.data_in(checksum),

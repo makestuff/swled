@@ -1,37 +1,18 @@
-This example demonstrates how to use a vendor IP block, in this case a FIFO. It
-may be built with a command similar to one of these:
-
-    hdlmake.py -t ../../templates/fx2min/vhdl -b lx9
-    hdlmake.py -t ../../templates/fx2all/vhdl -b nexys2-1200
-    hdlmake.py -t ../../templates/epp/vhdl -b ep2c5
-
-Unfortunately, the Xilinx tools are rather bad at maintaining compatibility for
-scripted generation of such IP cores across tool versions. If the FIFO
-generation fails for you, you may need to re-specify it manually. For example,
-if you have a nexys2-1200:
-
-    cd fifo_gen/
-    rm -rf nexys2-1200
-    hdlmake.py -x nexys2-1200
-
-When coregen starts, follow these steps:
-    * Select "File -> New Project".
-    * Save "coregen.cgp".
-    * In "Project Options":
-      * In "Part": Choose the right FPGA family, product, package etc.
-      * In "Generation": Choose "Design Entry=VHDL".
-      * Click "OK".
-    * Double-click "Memories & Storage Elements -> FIFOs -> Fifo Generator".
-    * In "Fifo Generator":
-      * Choose "fifo" for "Component Name" & click "Next" twice.
-      * Choose "First-Word Fall-Through", "Width=8", "Depth=128" & "Next" twice.
-      * Uncheck "Reset Pin" & click "Next".
-      * Check "Data Count" (width should already be 8) & click "Next".
-      * Click "Generate".
-    * When generation is complete, close coregen.
-
-This will create a nexys2-1200 directory containing a fifo.batch file and an
-hdlmake.cfg file to get you started. It remains necessary to add
-"../fifo_wrapper_xilinx.vhdl" to the list of HDLs in hdlmake.cfg. This merely
-abstracts the interface so that the same entity can be used at the application
-level irrespective of whether the underlying core is from Altera or Xilinx.
+../../../../../bin/hdlmake.py -t ../../templates/epp/vhdl -b ep2c5
+../../../../../bin/hdlmake.py -t ../../templates/epp/vhdl -b nexys2-1200 -p fpga prom
+../../../../../bin/hdlmake.py -t ../../templates/epp/vhdl -b s3board
+../../../../../bin/hdlmake.py -t ../../templates/ss/vhdl -b s3board
+../../../../../bin/hdlmake.py -t ../../templates/ss/vhdl -b canton-lx9 -p fpga
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b aes220
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b te630-45 -p fpga
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b te630-75 -p fpga
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b atlys -p fpga
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b fmc-s6 -p fpga
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b nexys2-1200 -p fpga prom
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b nexys2-500 -p fpga prom
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b nexys3 -p fpga
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b s3board -p fpga prom
+../../../../../bin/hdlmake.py -t ../../templates/fx2all/vhdl -b xylo-l -p fpga
+../../../../../bin/hdlmake.py -t ../../templates/fx2min/vhdl -b ep3c16
+../../../../../bin/hdlmake.py -t ../../templates/fx2min/vhdl -b lx9r1 -p fpga
+../../../../../bin/hdlmake.py -t ../../templates/fx2min/vhdl -b lx9r2 -p fpga

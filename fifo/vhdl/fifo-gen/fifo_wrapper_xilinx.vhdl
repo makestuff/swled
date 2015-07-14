@@ -46,7 +46,7 @@ begin
 	outputValid_out <= not(outputEmpty);
 
 	-- The encapsulated FIFO
-	fifo : entity work.fifo
+	fifo : entity work.xilinx_fifo
 		port map(
 			clk        => clk_in,
 			data_count => depth_out,

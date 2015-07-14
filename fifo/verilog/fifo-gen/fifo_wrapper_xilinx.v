@@ -39,7 +39,7 @@ module
 	assign outputValid_out = !outputEmpty;
 
 	// The encapsulated FIFO
-	fifo fifo(
+	xilinx_fifo fifo(
 		.clk(clk_in),
 		.data_count(depth_out),
 		

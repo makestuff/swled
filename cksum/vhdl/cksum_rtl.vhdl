@@ -67,7 +67,7 @@ begin                                                                     --BEGI
 
 	-- LEDs and 7-seg display
 	led_out <= reg0;
-	flags <= "000" & f2hReady_in;
+	flags <= "00" & f2hReady_in & reset_in;
 	seven_seg : entity work.seven_seg
 		port map(
 			clk_in     => clk_in,

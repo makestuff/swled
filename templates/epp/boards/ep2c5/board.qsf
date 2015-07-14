@@ -22,7 +22,7 @@ set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_
 #===============================================================================
 # USB interface
 #===============================================================================
-set_location_assignment PIN_17  -to eppClk_in
+set_location_assignment PIN_17  -to sysClk_in
 
 set_location_assignment PIN_144 -to eppData_io[0]
 set_location_assignment PIN_142 -to eppData_io[1]
